@@ -1,0 +1,114 @@
+/* --- Ad slot placeholders ------------------------------------------- */
+.ad-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: var(--code-bg);
+  color: var(--secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 1.5rem auto;
+}
+
+.ad-slot--leaderboard {
+  max-width: 728px;
+  min-height: 90px;
+}
+
+.ad-slot--sidebar {
+  width: 300px;
+  height: 250px;
+  margin: 1.5rem 0;
+}
+
+.ad-slot--in-content {
+  min-height: 100px;
+  margin: 2rem auto;
+}
+
+/* --- Homepage hero ---------------------------------------------------- */
+.hero-section {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.hero-section .hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--secondary);
+}
+
+.hero-section h1 {
+  font-size: 2.2rem;
+  margin: 0.4rem 0;
+}
+
+.hero-section .hero-description {
+  color: var(--secondary);
+  max-width: 42rem;
+}
+
+.hero-section .hero-cta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+/* --- Two-column layout with sidebar ------------------------------------ */
+.layout-with-sidebar {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.layout-with-sidebar .layout-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.layout-with-sidebar .layout-sidebar {
+  flex: 0 0 300px;
+  position: sticky;
+  top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .layout-with-sidebar {
+    flex-direction: column;
+  }
+  .layout-with-sidebar .layout-sidebar {
+    position: static;
+    width: 100%;
+    align-self: center;
+  }
+}
+
+/* --- Category badges on homepage grid ---------------------------------- */
+.post-entry .entry-categories {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.post-entry .entry-categories a {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--code-bg);
+  color: var(--secondary);
+  border: 1px solid var(--border);
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}

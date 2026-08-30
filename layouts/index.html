@@ -1,0 +1,61 @@
+{{- define "main" }}
+
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $posts = $posts.ByDate.Reverse }}
+{{- $featured := index $posts 0 }}
+{{- $rest := after 1 $posts }}
+
+<section class="hero-section">
+  <div class="hero-eyebrow">Featured Post</div>
+  {{- with $featured }}
+  <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+  <p class="hero-description">{{ .Summary | plainify | truncate 180 }}</p>
+  {{- with .Params.categories }}
+  <div class="entry-categories">
+    {{- range . }}
+    <a href="/categories/{{ . | urlize }}/">{{ . | humanize }}</a>
+    {{- end }}
+  </div>
+  {{- end }}
+  <a class="hero-cta" href="{{ .Permalink }}">Read the full post &rarr;</a>
+  {{- end }}
+</section>
+
+{{- partial "ad-leaderboard.html" . }}
+
+<div class="layout-with-sidebar">
+  <div class="layout-main">
+    <h2>Recent Posts</h2>
+    <div class="posts-grid">
+      {{- range $rest }}
+      <article class="post-entry">
+        {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
+        {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+        <header class="entry-header">
+          <h2 class="entry-hint-parent">{{ .Title }}</h2>
+        </header>
+        {{- with .Params.categories }}
+        <div class="entry-categories">
+          {{- range . }}
+          <a href="/categories/{{ . | urlize }}/">{{ . | humanize }}</a>
+          {{- end }}
+        </div>
+        {{- end }}
+        <div class="entry-content">
+          <p>{{ .Summary | plainify | htmlUnescape | truncate 140 }}</p>
+        </div>
+        <footer class="entry-footer">
+          {{- partial "post_meta.html" . -}}
+        </footer>
+        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+
+  <aside class="layout-sidebar">
+    {{- partial "ad-sidebar.html" . }}
+  </aside>
+</div>
+
+{{- end }}

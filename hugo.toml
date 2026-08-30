@@ -1,0 +1,150 @@
+baseURL = "https://SenudaJK.github.io/kubehealing/"
+locale = "en-us"
+title = "KubeHealing — Kubernetes & Cloud-Native Engineering"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+enableEmoji = true
+hasCJKLanguage = false
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  env = "production"
+  mainSections = ["posts"]
+  description = "Practical Kubernetes and cloud-native engineering: troubleshooting guides, CKA exam prep, and observability/self-healing patterns."
+  author = "Senuda Jayathilaka"
+  keywords = ["kubernetes", "cloud-native", "devops", "sre", "cka", "observability", "troubleshooting"]
+  # images = ["images/og-default.png"] # add static/images/og-default.png then uncomment for social share cards
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowShareButtons = true
+  ShowReadingTime = true
+  displayFullLangName = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowAllPagesInArchive = false
+  ShowToc = true
+  TocOpen = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+
+  [params.homeInfoParams]
+    Title = "KubeHealing"
+    Content = "Hands-on Kubernetes troubleshooting, CKA exam prep, and observability patterns for engineers who run clusters in production."
+
+  [params.assets]
+    disableHLJS = true
+    # favicon = "favicon.ico" # add static/favicon.ico then uncomment
+
+  [params.label]
+    text = "KubeHealing"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/SenudaJK/kubehealing"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "index.xml"
+
+  [params.footer]
+    text = "[Privacy Policy](/privacy-policy/) · [Terms of Service](/terms/) · [Contact](/contact/)"
+
+  [params.cover]
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    includeMatches = true
+    minMatchCharLength = 2
+    limit = 10
+    keys = ["title", "permalink", "summary", "content"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "monokai"
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[[menu.main]]
+  identifier = "troubleshooting"
+  name = "Troubleshooting"
+  url = "/categories/troubleshooting/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "cka-prep"
+  name = "CKA Prep"
+  url = "/categories/cka-prep/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "observability"
+  name = "Observability"
+  url = "/categories/observability/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "tutorials"
+  name = "Tutorials"
+  url = "/categories/tutorials/"
+  weight = 40
+
+[[menu.main]]
+  identifier = "archives"
+  name = "Archive"
+  url = "/archives/"
+  weight = 50
+
+[[menu.main]]
+  identifier = "search"
+  name = "Search"
+  url = "/search/"
+  weight = 60
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 70
+
+[privacy]
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.youtube]
+    privacyEnhanced = true
